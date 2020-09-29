@@ -1,0 +1,22 @@
+name: project
+version: 1
+dependencies:
+  - base
+
+library:
+  source-dirs: library
+
+_executable: &executable
+  main: Main.hs
+
+executable:
+  <<: *executable
+  dependencies: project
+  source-dirs: executable
+
+tests:
+  test:
+    <<: *executable
+    dependencies:
+      - project
+    source-dirs: test
